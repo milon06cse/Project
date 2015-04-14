@@ -1,0 +1,10 @@
+E:\Dev Skill\Project\Forum\Post.ClassLibrary\obj\Debug\Post.ClassLibrary.csprojResolveAssemblyReference.cache
+E:\Dev Skill\Project\Forum\Post.ClassLibrary\bin\Debug\Post.ClassLibrary.dll
+E:\Dev Skill\Project\Forum\Post.ClassLibrary\bin\Debug\Post.ClassLibrary.pdb
+E:\Dev Skill\Project\Forum\Post.ClassLibrary\obj\Debug\Post.ClassLibrary.dll
+E:\Dev Skill\Project\Forum\Post.ClassLibrary\obj\Debug\Post.ClassLibrary.pdb
+E:\Dev Skill\Github\Project\Forum\Post.ClassLibrary\obj\Debug\Post.ClassLibrary.csprojResolveAssemblyReference.cache
+E:\Dev Skill\Github\Project\Forum\Post.ClassLibrary\obj\Debug\Post.ClassLibrary.dll
+E:\Dev Skill\Github\Project\Forum\Post.ClassLibrary\obj\Debug\Post.ClassLibrary.pdb
+E:\Dev Skill\Github\Project\Forum\Post.ClassLibrary\bin\Debug\Post.ClassLibrary.dll
+E:\Dev Skill\Github\Project\Forum\Post.ClassLibrary\bin\Debug\Post.ClassLibrary.pdb
