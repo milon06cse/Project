@@ -1,0 +1,12 @@
+E:\Dev Skill\Project\Forum\Post.UnitTest\bin\Debug\Post.UnitTest.dll
+E:\Dev Skill\Project\Forum\Post.UnitTest\bin\Debug\Post.UnitTest.pdb
+E:\Dev Skill\Project\Forum\Post.UnitTest\obj\Debug\Post.UnitTest.csprojResolveAssemblyReference.cache
+E:\Dev Skill\Project\Forum\Post.UnitTest\obj\Debug\Post.UnitTest.dll
+E:\Dev Skill\Project\Forum\Post.UnitTest\obj\Debug\Post.UnitTest.pdb
+E:\Dev Skill\Github\Project\Forum\Post.UnitTest\obj\Debug\Post.UnitTest.csprojResolveAssemblyReference.cache
+E:\Dev Skill\Github\Project\Forum\Post.UnitTest\obj\Debug\Post.UnitTest.dll
+E:\Dev Skill\Github\Project\Forum\Post.UnitTest\bin\Debug\Post.UnitTest.dll
+E:\Dev Skill\Github\Project\Forum\Post.UnitTest\bin\Debug\Post.UnitTest.pdb
+E:\Dev Skill\Github\Project\Forum\Post.UnitTest\bin\Debug\Post.ClassLibrary.dll
+E:\Dev Skill\Github\Project\Forum\Post.UnitTest\bin\Debug\Post.ClassLibrary.pdb
+E:\Dev Skill\Github\Project\Forum\Post.UnitTest\obj\Debug\Post.UnitTest.pdb

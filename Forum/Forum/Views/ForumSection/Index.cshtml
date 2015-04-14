@@ -1,0 +1,16 @@
+﻿@model Forum.Models.ForumSectionModel
+@{
+    ViewBag.Title = "Sections";
+}
+
+<h2>Sectios</h2>
+<form method="post" action="/ForumSection/Index">
+    @Html.AntiForgeryToken()  
+    Name: @Html.TextBoxFor(x=>x.SectionName)
+    <br/>
+    Order: @Html.TextBoxFor(x=>x.DisplayOrder)
+    <br />
+    <input type="submit" value="Save" />
+
+
+</form>

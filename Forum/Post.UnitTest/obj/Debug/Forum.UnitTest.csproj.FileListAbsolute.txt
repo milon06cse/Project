@@ -1,0 +1,2 @@
+E:\Dev Skill\Project\Forum\Post.UnitTest\obj\Debug\Post.UnitTest.dll
+E:\Dev Skill\Project\Forum\Post.UnitTest\obj\Debug\Post.UnitTest.pdb
