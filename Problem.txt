@@ -1,0 +1,2 @@
+I am facing problem with commit 
+its always say: user.name 
