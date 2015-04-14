@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B476007D-1E11-4D7E-84F6-F893B8E498B9}</ProjectGuid>
+    <ProjectGuid>{0F0DA562-3599-4666-A0DA-9689AF36987F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Forum.DataAccess</RootNamespace>
-    <AssemblyName>Forum.DataAccess</AssemblyName>
+    <RootNamespace>Forum.ClassLibrary</RootNamespace>
+    <AssemblyName>Forum.ClassLibrary</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,7 +31,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,18 +39,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseRepository.cs" />
-    <Compile Include="ForumSectionRepository.cs" />
+    <Compile Include="EnumSectionState.cs" />
+    <Compile Include="ForumBase.cs" />
+    <Compile Include="ForumSection.cs" />
+    <Compile Include="ForumThread.cs" />
+    <Compile Include="ForumPost.cs" />
+    <Compile Include="BasePost.cs" />
+    <Compile Include="PrimaryPost.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Forum.ClassLibrary\Forum.ClassLibrary.csproj">
-      <Project>{0f0da562-3599-4666-a0da-9689af36987f}</Project>
-      <Name>Forum.ClassLibrary</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Query.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
