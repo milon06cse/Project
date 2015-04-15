@@ -23,6 +23,12 @@ namespace Forum.DataAccess
             }
             return false;
         }
+        protected virtual DbConnection ConnectionBuilder()
+        {
+            if (Connection == null)
+                Connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ForumDbConnection"].ConnectionString);
+            return Connection;
+        }
         protected virtual bool CloseConnection()
         {
             if (Connection != null && Connection.State == System.Data.ConnectionState.Open)

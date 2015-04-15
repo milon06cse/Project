@@ -1,4 +1,5 @@
-﻿using Forum.Models;
+﻿using Forum.ClassLibrary;
+using Forum.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,11 @@ namespace Forum.Controllers
     {
         //
         // GET: /ForumSection/
-
+        [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            ForumSectionModel model = new ForumSectionModel();
+            return View(model.ShowFirstOne());
         }
         [HttpPost]
         [ValidateAntiForgeryToken]

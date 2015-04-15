@@ -2,15 +2,18 @@
 @{
     ViewBag.Title = "Sections";
 }
-
-<h2>Sectios</h2>
+<html>
 <form method="post" action="/ForumSection/Index">
     @Html.AntiForgeryToken()  
-    Name: @Html.TextBoxFor(x=>x.SectionName)
+     Name: @Html.Label(Model.SectionName)
+    <blockquote>  </blockquote>
+    Display Order: @Html.Label(Model.DisplayOrder.ToString())
     <br/>
-    Order: @Html.TextBoxFor(x=>x.DisplayOrder)
-    <br />
     <input type="submit" value="Save" />
+    </form>
+<form1 method="get" action="/ForumSection/Index">
 
-
-</form>
+    Name: @Html.TextBox(Model.SectionName);
+    <br />
+</form1>
+    </html>

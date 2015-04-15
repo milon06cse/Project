@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,16 +38,53 @@ namespace Forum.DataAccess
         {
             return false;
         }
-        public ForumSection ShowBySectionId()
+        public ForumSection ShowFirstSection()
         {
             ForumSection Section = new ForumSection();
-
+            string sql = string.Empty;
+            sql = "select *from ForumSection where DisplayOrder='1'";
+            OpenConnection();
+            SqlCommand command = new SqlCommand();
+            command.CommandText = sql;
+            command.Connection = (SqlConnection)ConnectionBuilder();
+            command.CommandType = System.Data.CommandType.Text;
+            SqlDataReader reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                Section.SectionId = Convert.ToInt32(reader["SectionId"]);
+                Section.SectionName = reader["SectionName"].ToString();
+                Section.DisplayOrder = Convert.ToInt32(reader["DisplayOrder"]);
+            }
+            reader.Close();
+            reader.Dispose();
+            reader = null;
+            CloseConnection();
+            
             return Section;
         }
         public List<ForumSection> ShowAll()
         {
             List<ForumSection> Sections = new List<ForumSection>();
-
+            string sql = string.Empty;
+            sql = "select *from ForumSection order by DisplayOrder";
+            OpenConnection();
+            SqlCommand command = new SqlCommand();
+            command.CommandText = sql;
+            command.Connection = (SqlConnection)ConnectionBuilder();
+            command.CommandType = System.Data.CommandType.Text;
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                ForumSection item = new ForumSection();
+                item.SectionId = Convert.ToInt32(reader["SectionId"]);
+                item.SectionName = reader["SectionName"].ToString();
+                item.DisplayOrder = Convert.ToInt32( reader["DisplayOrder"]);
+                Sections.Add(item);
+            }
+            reader.Close();
+            reader.Dispose();
+            reader = null;
+            CloseConnection();
             return Sections;
         }
     }

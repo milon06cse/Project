@@ -21,5 +21,20 @@ namespace Forum.Models
             Section.DisplayOrder = DisplayOrder;
             repository.Add(Section);
         }
+        internal List<ForumSectionModel> Show()
+        {
+            ForumSectionRepository repository = new ForumSectionRepository();
+           // return repository.ShowAll();
+            return new List<ForumSectionModel>();
+        }
+        internal ForumSectionModel ShowFirstOne()
+        {
+            ForumSectionRepository repository = new ForumSectionRepository();
+            ForumSection Section= repository.ShowFirstSection();
+            ForumSectionModel model = new ForumSectionModel();
+            model.SectionName = Section.SectionName;
+            model.DisplayOrder = Section.DisplayOrder;
+            return model;
+        }
     }
 }
