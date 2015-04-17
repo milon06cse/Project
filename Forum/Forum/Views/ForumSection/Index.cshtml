@@ -17,8 +17,9 @@
         @foreach (Forum.Models.ForumSectionModel item in Model)
         {<tr>
              <td>@Html.Label(item.SectionId.ToString())</td>
-            <td style="font-size:large">@Html.ActionLink(item.SectionName,"ViewSections")</td>
-            <td>@Html.Label(item.DisplayOrder.ToString())</td>
+            <td style="font-size:large">@Html.ActionLink(item.SectionName,"../ForumThread/Index", new {id=item.SectionId.ToString()})</td>
+           @* @Html.ActionLink("linktext","actionname","routevalue object",
+            *@<td>@Html.Label(item.DisplayOrder.ToString())</td>
             </tr>
         }
             </table>

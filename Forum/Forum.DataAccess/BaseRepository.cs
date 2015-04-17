@@ -46,7 +46,6 @@ namespace Forum.DataAccess
         {
             return new SqlParameter(name, value);
         }
-
         protected virtual object ExecuteScalar(String sql)
         {
             OpenConnection();
@@ -81,7 +80,6 @@ namespace Forum.DataAccess
 
             return obj;
         }
-
         public virtual int MaxColumnValue(string Column, String TableName)
         {
             string sql = string.Format("select isnull( Max({0})+1,'1') from {1}", Column, TableName);

@@ -10,11 +10,16 @@ namespace Forum.ClassLibrary
     {
         public PrimaryPost MainPost = new PrimaryPost();
         
-        List<ForumPost> Reply = new List<ForumPost>();        
+        List<ForumPost> Reply = new List<ForumPost>();
+        public  int ThreadId { set; get; }
         
         public int TotalPostCount { set; get; }
         public string Title { set; get; }
         public bool AnswerStatus = false;
         public DateTime LastPoster { get; set; }
+        public ForumThread()
+        {
+            //ParentId = SectionId;
+        }
     }
 }

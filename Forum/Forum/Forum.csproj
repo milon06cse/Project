@@ -99,10 +99,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ForumSectionController.cs" />
+    <Compile Include="Controllers\ForumThreadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ForumSectionModel.cs" />
+    <Compile Include="Models\ForumThreadModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -198,6 +200,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\ForumSection\Index.cshtml" />
     <Content Include="Views\ForumSection\ViewSections.cshtml" />
+    <Content Include="Views\ForumThread\ThreadsBySection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

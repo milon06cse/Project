@@ -8,6 +8,6 @@ namespace Forum.ClassLibrary
 {
     public class PrimaryPost:BasePost
     {
-
+        public bool IsFavourite { set; get; }
     }
 }

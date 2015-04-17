@@ -12,7 +12,7 @@ namespace Forum.Models
         public string SectionName { get; set; }
         public int DisplayOrder { get; set; }
         public int SectionId { get; set; }
-
+        //List<ForumThread> Threads = new List<ForumThread>();
         internal void Save()
         {
             ForumSection Section = new ForumSection();
