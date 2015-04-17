@@ -16,15 +16,28 @@ namespace Forum.Controllers
         public ActionResult Index()
         {
             ForumSectionModel model = new ForumSectionModel();
-            return View(model.ShowFirstOne());
+            return View(model.Show());
         }
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(ForumSectionModel model)
+        public ActionResult Index(List<ForumSectionModel> model)
         {
-            model.Save();
-            return View();
+            model[0].Save();
+            return View(model[0].Show());
         }
-
+        [HttpGet]
+        public ActionResult ViewSections()
+        {
+            ForumSectionModel model = new ForumSectionModel();
+            return View(model.Show());
+        }
+        [HttpPost]
+        public ActionResult ViewSections(ForumSectionModel model)
+        {
+            ForumSection section = new ForumSection();
+            section.SectionName=model.SectionName;
+            return View(model.Show());
+        }
     }
 }

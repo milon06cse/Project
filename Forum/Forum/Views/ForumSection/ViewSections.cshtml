@@ -1,0 +1,17 @@
+﻿@model List<Forum.Models.ForumSectionModel>
+@{
+    ViewBag.Title = "ViewSections";
+}
+
+<h2>ViewSections</h2>
+<html>
+    <body style="font:500">
+        <table>
+        @foreach (Forum.Models.ForumSectionModel item in Model)
+        {<tr>
+            <td>@Html.ActionLink(item.SectionName,"ViewSections")</td>
+            <td>@Html.Label(item.DisplayOrder.ToString())</td>
+            </tr>
+        }</table>
+    </body>
+</html>

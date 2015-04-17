@@ -11,6 +11,7 @@ namespace Forum.Models
     {
         public string SectionName { get; set; }
         public int DisplayOrder { get; set; }
+        public int SectionId { get; set; }
 
         internal void Save()
         {
@@ -24,8 +25,17 @@ namespace Forum.Models
         internal List<ForumSectionModel> Show()
         {
             ForumSectionRepository repository = new ForumSectionRepository();
-           // return repository.ShowAll();
-            return new List<ForumSectionModel>();
+            List<ForumSectionModel> models = new List<ForumSectionModel>();
+            foreach (ForumSection item in repository.ShowAll())
+            {
+                ForumSectionModel model = new ForumSectionModel();
+                model.SectionName = item.SectionName;
+                model.DisplayOrder = item.DisplayOrder;
+                model.SectionId = item.SectionId;
+                models.Add(model);
+            }
+            return models;
+
         }
         internal ForumSectionModel ShowFirstOne()
         {
@@ -34,6 +44,7 @@ namespace Forum.Models
             ForumSectionModel model = new ForumSectionModel();
             model.SectionName = Section.SectionName;
             model.DisplayOrder = Section.DisplayOrder;
+            model.SectionId = Section.SectionId;
             return model;
         }
     }

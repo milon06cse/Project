@@ -1,19 +1,44 @@
-﻿@model Forum.Models.ForumSectionModel
+﻿@model List<Forum.Models.ForumSectionModel>
 @{
     ViewBag.Title = "Sections";
 }
 <html>
-<form method="post" action="/ForumSection/Index">
+    <body>
     @Html.AntiForgeryToken()  
-     Name: @Html.Label(Model.SectionName)
-    <blockquote>  </blockquote>
-    Display Order: @Html.Label(Model.DisplayOrder.ToString())
-    <br/>
-    <input type="submit" value="Save" />
-    </form>
-<form1 method="get" action="/ForumSection/Index">
-
-    Name: @Html.TextBox(Model.SectionName);
-    <br />
-</form1>
+        @using( Html.BeginForm("Index","ForumSection",FormMethod.Get))
+        {<fieldset style="width:300px;grid-row-sizing:auto">
+                        <legend style="border :initial; color:darkolivegreen;text-align:left"> All Sections</legend>                        
+            <table border="1" style="font-size:medium;">
+            <tr>
+             <td>SecionId</td>
+            <td>SectionName</td>
+            <td>DisplayOrder</td>
+            </tr>
+        @foreach (Forum.Models.ForumSectionModel item in Model)
+        {<tr>
+             <td>@Html.Label(item.SectionId.ToString())</td>
+            <td style="font-size:large">@Html.ActionLink(item.SectionName,"ViewSections")</td>
+            <td>@Html.Label(item.DisplayOrder.ToString())</td>
+            </tr>
+        }
+            </table>
+            </fieldset>
+        }
+        @using (Html.BeginForm("Index","ForumSection",FormMethod.Post))
+        {
+    @Html.AntiForgeryToken() 
+            Model.RemoveRange(0, Model.Count);
+            Model.Add(new Forum.Models.ForumSectionModel());
+            //int i = Model.Count - 1;
+            <fieldset style="width: 300px;">
+                <legend style="border: initial; color: darkolivegreen; text-align: left;">Add New Section: Admin Panel</legend>
+                <table style="border:thin"><tr><td>
+                @Html.Label("Section Name:") @Html.TextBoxFor(x => x[(0)].SectionName, new { style = "width:180px;" })
+                </td><td>
+                @Html.Label("DisplayOrder:") @Html.TextBoxFor(x => x[(0)].DisplayOrder, new { style = "width:110px;" })
+                </td></tr></table>
+                <input type="submit" value="Save" />
+            </fieldset>
+        }
+        </body>
     </html>
