@@ -201,7 +201,6 @@
     <Content Include="Views\ForumSection\Index.cshtml" />
     <Content Include="Views\ForumSection\ViewSections.cshtml" />
     <Content Include="Views\ForumThread\ThreadsBySection.cshtml" />
-    <Content Include="Views\ForumThread\AddThread.cshtml" />
     <Content Include="Views\ForumThread\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

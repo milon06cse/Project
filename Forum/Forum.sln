@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forum.DataAccess", "Forum.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forum.ClassLibrary", "Forum.ClassLibrary\Forum.ClassLibrary.csproj", "{0F0DA562-3599-4666-A0DA-9689AF36987F}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ForumDB", "ForumDB\ForumDB.sqlproj", "{070A30DE-02FB-41E5-B47F-EE2074A2E80B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,12 @@ Global
 		{0F0DA562-3599-4666-A0DA-9689AF36987F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F0DA562-3599-4666-A0DA-9689AF36987F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F0DA562-3599-4666-A0DA-9689AF36987F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{070A30DE-02FB-41E5-B47F-EE2074A2E80B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{070A30DE-02FB-41E5-B47F-EE2074A2E80B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{070A30DE-02FB-41E5-B47F-EE2074A2E80B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{070A30DE-02FB-41E5-B47F-EE2074A2E80B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{070A30DE-02FB-41E5-B47F-EE2074A2E80B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{070A30DE-02FB-41E5-B47F-EE2074A2E80B}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
