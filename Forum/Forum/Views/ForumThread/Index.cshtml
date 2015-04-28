@@ -1,0 +1,63 @@
+﻿@model List<Forum.Models.ForumThreadModel>
+@{
+    ViewBag.Title = "Threads of Section";
+}
+<html>
+     <head>
+    <title>Bootstrap 101 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="/Content/strap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link href="/Content/strap/css/bootstrap-responsive.min.css" rel="stylesheet">
+  </head>
+    <body>
+    @Html.AntiForgeryToken()  
+        @using( Html.BeginForm("Index","ForumThread",FormMethod.Get))
+        {<fieldset style="width:300px;grid-row-sizing:auto">
+                        <legend style="border :initial; color:darkolivegreen;text-align:left"> All Threads of Section:@Model[0].SectionId</legend>                        
+            <table border="1" style="font-size:medium;">
+            <tr>
+             <td>SecionId</td>
+            <td>SectionName</td>
+            <td>DisplayOrder</td>
+            </tr>
+        @foreach (Forum.Models.ForumThreadModel item in Model)
+        {<tr>
+             <td>@Html.Label(item.SectionId.ToString())</td>
+            <td style="font-size:large">@Html.ActionLink(item.Title,"../ForumThread/Index", new {id=item.ThreadId.ToString()})</td>
+           @* @Html.ActionLink("linktext","actionname","routevalue object",
+            *@<td>@Html.Label(item.PostText.ToString())</td>
+            </tr>
+        }
+            </table>
+            </fieldset>
+        }
+        @using (Html.BeginForm("Index","ForumThread",FormMethod.Post))
+        {
+    @Html.AntiForgeryToken() 
+        int threadid = Model[0].ThreadId;
+        int sectionid=Model[0].SectionId;
+        Model.RemoveRange(0, Model.Count);
+        Model.Add(new Forum.Models.ForumThreadModel());
+        foreach (Forum.Models.ForumThreadModel item in Model)
+        {
+           // Forum.Models.ForumThreadModel item = new Forum.Models.ForumThreadModel();
+            item.SectionId = sectionid;
+            item.ThreadId = threadid;
+        }
+            //int i = Model.Count - 1;
+            <fieldset style="width: 300px;">
+                <legend style="border: initial; color: darkolivegreen; text-align: left;">Add New Thread: Section-@Model[0].SectionId</legend>
+                <table style="border:thin"><tr><td>
+                @Html.Label("Title:") @Html.TextBoxFor(x => x[(0)].Title, new {style = "width:180px;",@class="form-control"})
+                     
+                </td><td>
+                @Html.Label("Text:")  @Html.TextBoxFor(x => x[(0)].PostText, new { style = "width:110px;",@class="form-control" })
+                </td></tr></table>   
+              <button class="btn-info" style="border-color:black">Add a Thread</button>
+            </fieldset>
+        }
+        </body>    
+    <script src="/Content/strap/js/jquery.js"></script>
+    <script src="/Content/strap/js/bootstrap.min.js"></script>
+    </html>
