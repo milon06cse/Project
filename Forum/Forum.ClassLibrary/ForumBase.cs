@@ -8,6 +8,7 @@ namespace Forum.ClassLibrary
 {
     public class ForumBase
     {
-        public int ParentId { get; set; }
+       
+        public string User { get; set; }
     }
 }

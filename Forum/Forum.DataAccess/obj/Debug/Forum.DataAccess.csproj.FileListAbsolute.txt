@@ -3,10 +3,10 @@ E:\Dev Skill\Github\Project\Forum\Forum.DataAccess\bin\Debug\Forum.DataAccess.pd
 E:\Dev Skill\Github\Project\Forum\Forum.DataAccess\obj\Debug\Forum.DataAccess.csprojResolveAssemblyReference.cache
 E:\Dev Skill\Github\Project\Forum\Forum.DataAccess\obj\Debug\Forum.DataAccess.dll
 E:\Dev Skill\Github\Project\Forum\Forum.DataAccess\obj\Debug\Forum.DataAccess.pdb
-E:\Dev Skill\Project\Forum\Forum.DataAccess\obj\Debug\Forum.DataAccess.csprojResolveAssemblyReference.cache
-E:\Dev Skill\Project\Forum\Forum.DataAccess\obj\Debug\Forum.DataAccess.dll
-E:\Dev Skill\Project\Forum\Forum.DataAccess\obj\Debug\Forum.DataAccess.pdb
 E:\Dev Skill\Project\Forum\Forum.DataAccess\bin\Debug\Forum.DataAccess.dll
 E:\Dev Skill\Project\Forum\Forum.DataAccess\bin\Debug\Forum.DataAccess.pdb
 E:\Dev Skill\Project\Forum\Forum.DataAccess\bin\Debug\Forum.ClassLibrary.dll
 E:\Dev Skill\Project\Forum\Forum.DataAccess\bin\Debug\Forum.ClassLibrary.pdb
+E:\Dev Skill\Project\Forum\Forum.DataAccess\obj\Debug\Forum.DataAccess.csprojResolveAssemblyReference.cache
+E:\Dev Skill\Project\Forum\Forum.DataAccess\obj\Debug\Forum.DataAccess.dll
+E:\Dev Skill\Project\Forum\Forum.DataAccess\obj\Debug\Forum.DataAccess.pdb

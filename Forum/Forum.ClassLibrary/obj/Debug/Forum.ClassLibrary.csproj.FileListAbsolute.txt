@@ -10,6 +10,5 @@ E:\Dev Skill\Project\Forum\Post.ClassLibrary\obj\Debug\Forum.ClassLibrary.dll
 E:\Dev Skill\Project\Forum\Post.ClassLibrary\obj\Debug\Forum.ClassLibrary.pdb
 E:\Dev Skill\Project\Forum\Forum.ClassLibrary\bin\Debug\Forum.ClassLibrary.dll
 E:\Dev Skill\Project\Forum\Forum.ClassLibrary\bin\Debug\Forum.ClassLibrary.pdb
-E:\Dev Skill\Project\Forum\Forum.ClassLibrary\obj\Debug\Forum.ClassLibrary.csprojResolveAssemblyReference.cache
 E:\Dev Skill\Project\Forum\Forum.ClassLibrary\obj\Debug\Forum.ClassLibrary.dll
 E:\Dev Skill\Project\Forum\Forum.ClassLibrary\obj\Debug\Forum.ClassLibrary.pdb

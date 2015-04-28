@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Forum.ClassLibrary
 {
-    public class ForumThread:ForumBase
+    public class ForumThread:PrimaryPost
     {
-        public PrimaryPost MainPost = new PrimaryPost();
-        
+         public int ParentId { get; set; }
+        public DateTime datetime { set; get; }
         List<ForumPost> Reply = new List<ForumPost>();
         public  int ThreadId { set; get; }
         

@@ -16,10 +16,11 @@ namespace Forum.DataAccess
             try
             {
                 OpenConnection();
-                DbCommand Command = CreateSqlCommand("insert into ForumSection(SectionId,SectionName,DisplayOrder) values(@SectionId,@SectionName,@DisplayOrder)");
+                DbCommand Command = CreateSqlCommand("insert into ForumThread(SectionId,Title,ThreadId,PostText) values(@SectionId,@Title,@ThreadId,@PostText)");
                 Command.Parameters.Add(CreateParameter("SectionId", Thread.ParentId));
                 Command.Parameters.Add(CreateParameter("Title", Thread.Title));
                 Command.Parameters.Add(CreateParameter("ThreadId", Thread.ThreadId));
+                Command.Parameters.Add(CreateParameter("PostText", Thread.PostText));
                 Command.ExecuteNonQuery();
                 CloseConnection();
                 return true;
@@ -38,29 +39,33 @@ namespace Forum.DataAccess
         {
             return false;
         }
-        public ForumThread ShowBySectionId(int sectionid)
+        public List<ForumThread> ShowBySectionId(int sectionid)
         {
+            List<ForumThread> Threads = new List<ForumThread>();
             ForumThread Thread = new ForumThread();
             string sql = string.Empty;
-            sql =string.Format("select *from ForumThread where SectionId='{0}'",sectionid);
+            sql ="select *from ForumThread where SectionId=@SectionId";
             OpenConnection();
             SqlCommand command = new SqlCommand();
+            command.Parameters.Add(CreateParameter("SectionId", sectionid));
             command.CommandText = sql;
             command.Connection = (SqlConnection)ConnectionBuilder();
             command.CommandType = System.Data.CommandType.Text;
             SqlDataReader reader = command.ExecuteReader();
-            if (reader.Read())
+            while (reader.Read())
             {
                 Thread.ParentId = sectionid;
                 Thread.Title = reader["Title"].ToString();
                 Thread.ThreadId = Convert.ToInt32(reader["ThreadId"]);
+                Thread.PostText = reader["PostText"].ToString();
+                Threads.Add(Thread);
             }
             reader.Close();
             reader.Dispose();
             reader = null;
             CloseConnection();
 
-            return  Thread;
+            return  Threads;
         }
         public List<ForumThread> ShowAll()
         {

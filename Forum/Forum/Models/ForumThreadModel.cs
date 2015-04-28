@@ -7,19 +7,37 @@ using System.Web;
 
 namespace Forum.Models
 {
-    public class ForumThreadModel
+    public class ForumThreadModel:PrimaryPost
     {
         public int ThreadId { get; set; }
         public string Title { get; set; }
-        public ForumThreadModel ShowByParentId(int SectionId)
+        public int SectionId { get; set; }
+        public List<ForumThreadModel> ShowByParentId(int SectionId)
         {
-            ForumThreadModel model = new ForumThreadModel();
-            ForumThread thread = new ForumThread();
+            List<ForumThreadModel> items = new List<ForumThreadModel>();   
             ForumThreadRepository repository = new ForumThreadRepository();
-           thread= repository.ShowBySectionId(SectionId);
-            model.Title = thread.Title;
-            model.ThreadId = thread.ThreadId;
-            return model;
+          List<ForumThread> threads= repository.ShowBySectionId(SectionId);
+           foreach (ForumThread item in threads)
+           {
+               ForumThreadModel model = new ForumThreadModel();
+               model.SectionId = SectionId;
+               model.Title = item.Title;
+               model.ThreadId = item.ThreadId;
+               model.PostText = item.PostText;
+               items.Add(model);
+           }
+            return items;
+        }
+
+        internal bool Save()
+        {
+            ForumThread Thread = new ForumThread();
+            ForumThreadRepository repository = new ForumThreadRepository();
+            Thread.ParentId = SectionId;
+            Thread.ThreadId = repository.MaxColumnValue("ThreadId", "ForumThread");
+            Thread.Title = Title;
+            Thread.PostText = PostText;
+          return  repository.Add(Thread);
         }
     }
 }
