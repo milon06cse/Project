@@ -12,6 +12,11 @@ namespace Forum.Models
         public int ThreadId { get; set; }
         public string Title { get; set; }
         public int SectionId { get; set; }
+        public ForumThreadModel()
+        {
+            Title = string.Empty;
+
+        }
         public List<ForumThreadModel> ShowByParentId(int SectionId)
         {
             List<ForumThreadModel> items = new List<ForumThreadModel>();   
@@ -24,6 +29,12 @@ namespace Forum.Models
                model.Title = item.Title;
                model.ThreadId = item.ThreadId;
                model.PostText = item.PostText;
+               items.Add(model);
+           }
+           if (items.Count == 0)
+           {
+               ForumThreadModel model = new ForumThreadModel();
+               model.SectionId = SectionId;
                items.Add(model);
            }
             return items;

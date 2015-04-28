@@ -16,6 +16,14 @@ namespace Forum.ClassLibrary
         public int DownVoteCount { get; set; }
         public int UpVoteCount { get; set; }
         public int Score { get; set; }
+        public BasePost()
+        {
+            PostText = string.Empty;
+            PostDate = DateTime.Now;
+            DownVoteCount = 0;
+            UpVoteCount = 0;
+            Score = 0;
+        }
         public virtual int CalculateScore()
         {
             Score = UpVoteCount * 10 - DownVoteCount * 2;
