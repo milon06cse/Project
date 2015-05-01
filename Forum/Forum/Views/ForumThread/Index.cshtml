@@ -16,18 +16,18 @@
         {if(Model.Count!=0)
         {
             <fieldset style="width:300px;grid-row-sizing:auto">
-                        <legend style="border :initial; color:darkolivegreen;text-align:left"> All Threads of Section:@Model[0].SectionId</legend>                        
+                        <legend style="border :initial; color:darkolivegreen;text-align:left"> All Threads of Section:@Model[0].Id</legend>                        
             <table border="1" style="font-size:medium;">
             <tr>
              <td>SecionId</td>
-            <td>SectionName</td>
+            <td>Name</td>
             <td>Description</td>
             </tr>
         @foreach (Forum.Models.ForumThreadModel item in Model)
         {<tr>
-             <td>@Html.Label(item.SectionId.ToString())</td>
+             <td>@Html.Label(item.Id.ToString())</td>
             <td style="font-size:large">
-                @Html.ActionLink((item.Title.ToString()!=string.Empty)?item.Title:"NO Text","../ForumThread/Index", new {id=item.ThreadId.ToString()})</td>
+                @Html.ActionLink((item.Title.ToString()!=string.Empty)?item.Title:"NO Text","../ForumThread/Index", new {id=item.Id.ToString()})</td>
            @* @Html.ActionLink("linktext","actionname","routevalue object",
             *@<td>@Html.Label((item.PostText!=string.Empty)?item.PostText:"No text")</td>
             </tr>
@@ -41,23 +41,23 @@
             using (Html.BeginForm("Index","ForumThread",FormMethod.Post))
         {
     @Html.AntiForgeryToken() 
-            @Html.HiddenFor(x=>x[0].SectionId)
+            @Html.HiddenFor(x=>x[0].Id)
            
-        int threadid = Model[0].ThreadId;
-        int sectionid=Model[0].SectionId;
+        Guid threadid = Model[0].Id;
+        Guid Id=Model[0].Id;
         Model.RemoveRange(0, Model.Count);
         Model.Add(new Forum.Models.ForumThreadModel());
         foreach (Forum.Models.ForumThreadModel item in Model)
         {
            // Forum.Models.ForumThreadModel item = new Forum.Models.ForumThreadModel();
-            item.SectionId = sectionid;
-            item.ThreadId = threadid;
+            item.Id = Id;
+            item.Id = threadid;
             item.PostText = "Give Description";
             item.Title = "Write a Title";
         }
             //int i = Model.Count - 1;
             <fieldset style="width: 300px;">
-                <legend style="border: initial; color: darkolivegreen; text-align: left;">Add New Thread: Section-@Model[0].SectionId</legend>
+                <legend style="border: initial; color: darkolivegreen; text-align: left;">Add New Thread: Section-@Model[0].Id</legend>
                 <table style="border:thin"><tr><td>
                 @Html.Label("Title:") @Html.TextBoxFor(x => x[(0)].Title, new {style = "width:180px;",@class="form-control"})
                      
@@ -69,10 +69,10 @@
         }
         }
         else
-        {     @Html.HiddenFor(x=>x[0].SectionId)
+        {     @Html.HiddenFor(x=>x[0].Id)
             
  <fieldset style="width: 300px;">
-                <legend style="border: initial; color: darkolivegreen; text-align: left;">Add New Thread: Section-@Model[0].SectionId</legend>
+                <legend style="border: initial; color: darkolivegreen; text-align: left;">Add New Thread: Section-@Model[0].Id</legend>
                 <table style="border:thin"><tr><td>
                 @Html.Label("Title:") @Html.TextBoxFor((x => x[(0)].Title!=string.Empty?x[0].Title:"No text"), new {style = "width:180px;",@class="form-control"})
                      

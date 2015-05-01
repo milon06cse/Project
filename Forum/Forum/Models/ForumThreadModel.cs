@@ -9,32 +9,32 @@ namespace Forum.Models
 {
     public class ForumThreadModel:PrimaryPost
     {
-        public int ThreadId { get; set; }
+        //public int ThreadId { get; set; }
         public string Title { get; set; }
-        public int SectionId { get; set; }
+       // public Guid Id { get; set; }
         public ForumThreadModel()
         {
             Title = string.Empty;
 
         }
-        public List<ForumThreadModel> ShowByParentId(int SectionId)
+        public List<ForumThreadModel> ShowByParentId(Guid Id)
         {
             List<ForumThreadModel> items = new List<ForumThreadModel>();   
             ForumThreadRepository repository = new ForumThreadRepository();
-          List<ForumThread> threads= repository.ShowBySectionId(SectionId);
+          List<ForumThread> threads= repository.ShowBySectionId(Id);
            foreach (ForumThread item in threads)
            {
                ForumThreadModel model = new ForumThreadModel();
-               model.SectionId = SectionId;
+               model.Id = Id;
                model.Title = item.Title;
-               model.ThreadId = item.ThreadId;
+               model.Id = item.Id;
                model.PostText = item.PostText;
                items.Add(model);
            }
            if (items.Count == 0)
            {
                ForumThreadModel model = new ForumThreadModel();
-               model.SectionId = SectionId;
+               model.Id = Id;
                items.Add(model);
            }
             return items;
@@ -44,8 +44,8 @@ namespace Forum.Models
         {
             ForumThread Thread = new ForumThread();
             ForumThreadRepository repository = new ForumThreadRepository();
-            Thread.ParentId = SectionId;
-            Thread.ThreadId = repository.MaxColumnValue("ThreadId", "ForumThread");
+            Thread.ParentId = Id;
+            Thread.Id = Guid.NewGuid();// repository.MaxColumnValue("Id", "Thread");
             Thread.Title = Title;
             Thread.PostText = PostText;
           return  repository.Add(Thread);

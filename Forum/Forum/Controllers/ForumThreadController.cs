@@ -12,12 +12,12 @@ namespace Forum.Controllers
         //
         // GET: /ForumThread/
         [HttpGet]
-        public ActionResult Index(int id)
+        public ActionResult Index(Guid id)
         {
             ForumThreadModel Thread = new ForumThreadModel();
-            Thread.SectionId = id;
-            return View("Index",Thread.ShowByParentId(Thread.SectionId).ToList());
-          //  return View("ThreadsBySection", Thread.ShowByParentId(Thread.SectionId));
+            Thread.Id = id;
+            return View("Index",Thread.ShowByParentId(Thread.Id).ToList());
+          //  return View("ThreadsBySection", Thread.ShowByParentId(Thread.Id));
         }
         public ActionResult AddThread(string ThreadId)
         {
@@ -33,7 +33,7 @@ namespace Forum.Controllers
          public ActionResult Index(List<ForumThreadModel> model)
          {
              model[0].Save();
-             return View("Index",new ForumThreadModel().ShowByParentId(model[0].SectionId).ToList());
+             return View("Index",new ForumThreadModel().ShowByParentId(model[0].Id).ToList());
          }
 
     }

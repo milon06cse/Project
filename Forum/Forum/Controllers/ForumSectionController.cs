@@ -36,7 +36,7 @@ namespace Forum.Controllers
         public ActionResult ViewSections(ForumSectionModel model)
         {
             ForumSection section = new ForumSection();
-            section.SectionName=model.SectionName;
+            section.Name=model.Name;
             return View(model.Show());
         }
     }

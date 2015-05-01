@@ -39,7 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EnumSectionState.cs" />
+    <Compile Include="Enum.cs" />
     <Compile Include="ForumBase.cs" />
     <Compile Include="ForumSection.cs" />
     <Compile Include="ForumThread.cs" />

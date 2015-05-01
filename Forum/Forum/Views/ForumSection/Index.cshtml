@@ -11,13 +11,13 @@
             <table border="1" style="font-size:medium;">
             <tr>
              <td>SecionId</td>
-            <td>SectionName</td>
+            <td>Name</td>
             <td>DisplayOrder</td>
             </tr>
         @foreach (Forum.Models.ForumSectionModel item in Model)
         {<tr>
-             <td>@Html.Label(item.SectionId.ToString())</td>
-            <td style="font-size:large">@Html.ActionLink(item.SectionName,"../ForumThread/Index", new {id=item.SectionId.ToString()})</td>
+             <td>@Html.Label(item.Id.ToString())</td>
+            <td style="font-size:large">@Html.ActionLink(item.Name,"../ForumThread/Index", new {id=item.Id.ToString()})</td>
            @* @Html.ActionLink("linktext","actionname","routevalue object",
             *@<td>@Html.Label(item.DisplayOrder.ToString())</td>
             </tr>
@@ -34,7 +34,7 @@
             <fieldset style="width: 300px;">
                 <legend style="border: initial; color: darkolivegreen; text-align: left;">Add New Section: Admin Panel</legend>
                 <table style="border:thin"><tr><td>
-                @Html.Label("Section Name:") @Html.TextBoxFor(x => x[(0)].SectionName, new { style = "width:180px;" })
+                @Html.Label("Section Name:") @Html.TextBoxFor(x => x[(0)].Name, new { style = "width:180px;" })
                 </td><td>
                 @Html.Label("DisplayOrder:") @Html.TextBoxFor(x => x[(0)].DisplayOrder, new { style = "width:110px;" })
                 </td></tr></table>

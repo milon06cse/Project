@@ -84,7 +84,7 @@ namespace Forum.DataAccess
         {
             string sql = string.Format("select isnull( Max({0})+1,'1') from {1}", Column, TableName);
             object obj = ExecuteScalar(sql);
-            return Convert.ToInt32(obj);
+            return  Convert.ToInt32(obj);
         }
     }
 }

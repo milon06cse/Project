@@ -8,10 +8,10 @@ namespace Forum.ClassLibrary
 {
     public class ForumThread:PrimaryPost
     {
-         public int ParentId { get; set; }
+        // public int ParentId { get; set; }
         public DateTime datetime { set; get; }
         List<ForumPost> Reply = new List<ForumPost>();
-        public  int ThreadId { set; get; }
+       // public  Guid Id { set; get; }
         
         public int TotalPostCount { set; get; }
         public string Title { set; get; }
@@ -19,7 +19,7 @@ namespace Forum.ClassLibrary
         public DateTime LastPoster { get; set; }
         public ForumThread()
         {
-            //ParentId = SectionId;
+            //ParentId = Id;
         }
     }
 }

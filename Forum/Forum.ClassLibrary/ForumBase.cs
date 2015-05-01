@@ -8,7 +8,15 @@ namespace Forum.ClassLibrary
 {
     public class ForumBase
     {
-       
-        public string User { get; set; }
+
+        public Guid UserId { get; set; }
+        public DateTime CreationDate { get; set; }
+        public Guid Id { get; set; }
+       public ForumBase()
+        {
+            UserId =new Guid( "59ef2601-e4e4-423e-8bb7-d5b1d589f028");
+            CreationDate = DateTime.Now;
+            Id = Guid.Empty;
+        }
     }
 }

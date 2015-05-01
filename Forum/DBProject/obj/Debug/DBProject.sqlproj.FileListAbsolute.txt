@@ -1,0 +1,5 @@
+E:\Dev Skill\Project\Forum\ForumDB\bin\Debug\DBProject.dacpac
+E:\Dev Skill\Project\Forum\ForumDB\bin\Debug\ForumDB.dll
+E:\Dev Skill\Project\Forum\ForumDB\bin\Debug\ForumDB.pdb
+E:\Dev Skill\Project\Forum\ForumDB\obj\Debug\ForumDB.dll
+E:\Dev Skill\Project\Forum\ForumDB\obj\Debug\ForumDB.pdb

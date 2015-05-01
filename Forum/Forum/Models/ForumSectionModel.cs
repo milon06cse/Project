@@ -9,16 +9,16 @@ namespace Forum.Models
 {
     public class ForumSectionModel
     {
-        public string SectionName { get; set; }
+        public string Name { get; set; }
         public int DisplayOrder { get; set; }
-        public int SectionId { get; set; }
+        public Guid Id { get; set; }
         //List<ForumThread> Threads = new List<ForumThread>();
         internal void Save()
         {
             ForumSection Section = new ForumSection();
             ForumSectionRepository repository = new ForumSectionRepository();
-            Section.SectionId = repository.MaxColumnValue("SectionId", "ForumSection");
-            Section.SectionName = SectionName;
+            Section.Id = Guid.NewGuid(); //repository.MaxColumnValue("Id", "ForumSection");
+            Section.Name = Name;
             Section.DisplayOrder = DisplayOrder;
             repository.Add(Section);
         }
@@ -29,9 +29,9 @@ namespace Forum.Models
             foreach (ForumSection item in repository.ShowAll())
             {
                 ForumSectionModel model = new ForumSectionModel();
-                model.SectionName = item.SectionName;
+                model.Name = item.Name;
                 model.DisplayOrder = item.DisplayOrder;
-                model.SectionId = item.SectionId;
+                model.Id = item.Id;
                 models.Add(model);
             }
             return models;
@@ -42,9 +42,9 @@ namespace Forum.Models
             ForumSectionRepository repository = new ForumSectionRepository();
             ForumSection Section= repository.ShowFirstSection();
             ForumSectionModel model = new ForumSectionModel();
-            model.SectionName = Section.SectionName;
+            model.Name = Section.Name;
             model.DisplayOrder = Section.DisplayOrder;
-            model.SectionId = Section.SectionId;
+            model.Id = Section.Id;
             return model;
         }
     }

@@ -8,8 +8,8 @@ namespace Forum.ClassLibrary
 {
     abstract public class BasePost
     {
-        public int ParentId;
-        public int Id;
+        public Guid ParentId;
+        public Guid Id;
         public int DisplayOrder{get;set;}
         public string PostText { get; set; }
         public DateTime PostDate { get; set; }
@@ -23,6 +23,8 @@ namespace Forum.ClassLibrary
             DownVoteCount = 0;
             UpVoteCount = 0;
             Score = 0;
+          //  Id = Guid.NewGuid();
+//ParentId = Guid.NewGuid();
         }
         public virtual int CalculateScore()
         {

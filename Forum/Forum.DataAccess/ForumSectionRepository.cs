@@ -16,9 +16,9 @@ namespace Forum.DataAccess
             try
             {
                 OpenConnection();
-                DbCommand Command = CreateSqlCommand("insert into ForumSection(SectionId,SectionName,DisplayOrder) values(@SectionId,@SectionName,@DisplayOrder)");
-                Command.Parameters.Add(CreateParameter("SectionId", Section.SectionId));
-                Command.Parameters.Add(CreateParameter("SectionName", Section.SectionName));
+                DbCommand Command = CreateSqlCommand("insert into Section(Id,Name,DisplayOrder) values(@Id,@Name,@DisplayOrder)");
+                Command.Parameters.Add(CreateParameter("Id", Section.Id));
+                Command.Parameters.Add(CreateParameter("Name", Section.Name));
                 Command.Parameters.Add(CreateParameter("DisplayOrder", Section.DisplayOrder));
                 Command.ExecuteNonQuery();
                 CloseConnection();
@@ -42,7 +42,7 @@ namespace Forum.DataAccess
         {
             ForumSection Section = new ForumSection();
             string sql = string.Empty;
-            sql = "select *from ForumSection where DisplayOrder='1'";
+            sql = "select *from Section where DisplayOrder='1'";
             OpenConnection();
             SqlCommand command = new SqlCommand();
             command.CommandText = sql;
@@ -51,8 +51,8 @@ namespace Forum.DataAccess
             SqlDataReader reader = command.ExecuteReader();
             if (reader.Read())
             {
-                Section.SectionId = Convert.ToInt32(reader["SectionId"]);
-                Section.SectionName = reader["SectionName"].ToString();
+                Section.Id = (Guid)reader["Id"];
+                Section.Name = reader["Name"].ToString();
                 Section.DisplayOrder = Convert.ToInt32(reader["DisplayOrder"]);
             }
             reader.Close();
@@ -66,7 +66,7 @@ namespace Forum.DataAccess
         {
             List<ForumSection> Sections = new List<ForumSection>();
             string sql = string.Empty;
-            sql = "select *from ForumSection order by DisplayOrder";
+            sql = "select *from Section order by DisplayOrder";
             OpenConnection();
             SqlCommand command = new SqlCommand();
             command.CommandText = sql;
@@ -76,8 +76,8 @@ namespace Forum.DataAccess
             while (reader.Read())
             {
                 ForumSection item = new ForumSection();
-                item.SectionId = Convert.ToInt32(reader["SectionId"]);
-                item.SectionName = reader["SectionName"].ToString();
+                item.Id =(Guid)reader["Id"];
+                item.Name = reader["Name"].ToString();
                 item.DisplayOrder = Convert.ToInt32( reader["DisplayOrder"]);
                 Sections.Add(item);
             }

@@ -1,6 +1,6 @@
-﻿CREATE TABLE [dbo].[ForumSection]
+﻿CREATE TABLE [dbo].[Section]
 (
-	[SectionId] INT NOT NULL PRIMARY KEY, 
-    [SectionName] NCHAR(10) NOT NULL, 
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [Name] NCHAR(10) NOT NULL, 
     [DisplayOrder] NCHAR(10) NULL
 )

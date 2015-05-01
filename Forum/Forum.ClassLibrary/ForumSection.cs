@@ -7,20 +7,17 @@ using System.Threading.Tasks;
 namespace Forum.ClassLibrary
 {
     public class ForumSection:ForumBase
-    {
-        public int SectionId { get; set; } //Guid use korte hobe
-        public int SectionNumber { get; set; }
-        public string SectionName { get; set; }
-        public EnumSectionState SectionState;
+    {        
+        public string Name { get; set; }
+        public SectionState State;
         public int DisplayOrder { get; set; }
-        public List<ForumThread> Threads = new List<ForumThread>();
-        private ForumSection _Section;
-        //ForumSection(ForumSection Section)
-        //{
-        //    _Section.SectionNumber = 0;
-        //    _Section.SectionName = string.Empty;
-        //    _Section.SectionDisplayOrder = 0;
-        //    _Section = Section;
-        //}
+       // public List<ForumThread> Threads = new List<ForumThread>();
+       // private ForumSection _Section;
+       public ForumSection()
+        {
+            Name = string.Empty;
+            DisplayOrder = 0;
+            State = SectionState.Open;
+        }
     }
 }
