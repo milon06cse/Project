@@ -17,15 +17,15 @@ namespace Forum.Models
             Title = string.Empty;
 
         }
-        public List<ForumThreadModel> ShowByParentId(Guid Id)
+        public List<ForumThreadModel> ShowByParentId(Guid ParentId)
         {
             List<ForumThreadModel> items = new List<ForumThreadModel>();   
             ForumThreadRepository repository = new ForumThreadRepository();
-          List<ForumThread> threads= repository.ShowBySectionId(Id);
+            List<ForumThread> threads = repository.ShowBySectionId(ParentId);
            foreach (ForumThread item in threads)
            {
                ForumThreadModel model = new ForumThreadModel();
-               model.Id = Id;
+               model.ParentId = ParentId;
                model.Title = item.Title;
                model.Id = item.Id;
                model.PostText = item.PostText;
@@ -34,17 +34,17 @@ namespace Forum.Models
            if (items.Count == 0)
            {
                ForumThreadModel model = new ForumThreadModel();
-               model.Id = Id;
+               model.ParentId = ParentId;
                items.Add(model);
            }
             return items;
         }
 
-        internal bool Save()
+        internal bool Save(Guid ParentId)
         {
             ForumThread Thread = new ForumThread();
             ForumThreadRepository repository = new ForumThreadRepository();
-            Thread.ParentId = Id;
+            Thread.ParentId = ParentId;
             Thread.Id = Guid.NewGuid();// repository.MaxColumnValue("Id", "Thread");
             Thread.Title = Title;
             Thread.PostText = PostText;

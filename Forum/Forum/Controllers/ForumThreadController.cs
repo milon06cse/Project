@@ -15,8 +15,8 @@ namespace Forum.Controllers
         public ActionResult Index(Guid id)
         {
             ForumThreadModel Thread = new ForumThreadModel();
-            Thread.Id = id;
-            return View("Index",Thread.ShowByParentId(Thread.Id).ToList());
+            Thread.ParentId = id;
+            return View("Index",Thread.ShowByParentId(Thread.ParentId).ToList());
           //  return View("ThreadsBySection", Thread.ShowByParentId(Thread.Id));
         }
         public ActionResult AddThread(string ThreadId)
@@ -32,8 +32,8 @@ namespace Forum.Controllers
          [ValidateAntiForgeryToken]
          public ActionResult Index(List<ForumThreadModel> model)
          {
-             model[0].Save();
-             return View("Index",new ForumThreadModel().ShowByParentId(model[0].Id).ToList());
+             model[0].Save(model[0].ParentId);
+             return View("Index", new ForumThreadModel().ShowByParentId(model[0].ParentId).ToList());
          }
 
     }

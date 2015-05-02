@@ -8,8 +8,8 @@ namespace Forum.ClassLibrary
 {
     abstract public class BasePost
     {
-        public Guid ParentId;
-        public Guid Id;
+        public Guid ParentId { get; set; }
+        public Guid Id { get; set; }
         public int DisplayOrder{get;set;}
         public string PostText { get; set; }
         public DateTime PostDate { get; set; }

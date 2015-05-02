@@ -16,11 +16,12 @@ namespace Forum.DataAccess
             try
             {
                 OpenConnection();
-                DbCommand Command = CreateSqlCommand("insert into Thread(Id,Title,SectionId,Description) values(@Id,@Title,@SectionId,@Description)");
+                DbCommand Command = CreateSqlCommand("insert into Thread(Id,Title,SectionId,Description,CreationDate) values(@Id,@Title,@SectionId,@Description,@CreationDate)");
                 Command.Parameters.Add(CreateParameter("SectionId", Thread.ParentId));
                 Command.Parameters.Add(CreateParameter("Title", Thread.Title));
                 Command.Parameters.Add(CreateParameter("Id", Thread.Id));
                 Command.Parameters.Add(CreateParameter("Description", Thread.PostText));
+                Command.Parameters.Add(CreateParameter("CreationDate", DateTime.Now));
                 Command.ExecuteNonQuery();
                 CloseConnection();
                 return true;
@@ -39,22 +40,22 @@ namespace Forum.DataAccess
         {
             return false;
         }
-        public List<ForumThread> ShowBySectionId(Guid Id)
+        public List<ForumThread> ShowBySectionId(Guid ParentId)
         {
             List<ForumThread> Threads = new List<ForumThread>();
-            ForumThread Thread = new ForumThread();
             string sql = string.Empty;
             sql ="select *from Thread where SectionId=@SectionId";
             OpenConnection();
             SqlCommand command = new SqlCommand();
-            command.Parameters.Add(CreateParameter("SectionId", Id));
+            command.Parameters.Add(CreateParameter("SectionId", ParentId));
             command.CommandText = sql;
             command.Connection = (SqlConnection)ConnectionBuilder();
             command.CommandType = System.Data.CommandType.Text;
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                Thread.ParentId = Id;
+                ForumThread Thread = new ForumThread();
+                Thread.ParentId = ParentId;
                 Thread.Title = reader["Title"].ToString();
                 Thread.Id = (Guid) reader["Id"];
                 Thread.PostText = reader["Description"].ToString();

@@ -16,15 +16,18 @@
         {if(Model.Count!=0)
         {
             <fieldset style="width:300px;grid-row-sizing:auto">
-                        <legend style="border :initial; color:darkolivegreen;text-align:left"> All Threads of Section:@Model[0].Id</legend>                        
-            <table border="1" style="font-size:medium;">
+                        <legend style="border :initial; color:darkolivegreen;text-align:left"> All Threads of Section:@Model[0].ParentId</legend>                                      
+            @if (Model[0].Id != Guid.Empty)
+            { 
+                <table border="1" style="font-size:medium;">
             <tr>
-             <td>SecionId</td>
+             <td>ThreadId</td>
             <td>Name</td>
             <td>Description</td>
             </tr>
         @foreach (Forum.Models.ForumThreadModel item in Model)
-        {<tr>
+        {
+            <tr>
              <td>@Html.Label(item.Id.ToString())</td>
             <td style="font-size:large">
                 @Html.ActionLink((item.Title.ToString()!=string.Empty)?item.Title:"NO Text","../ForumThread/Index", new {id=item.Id.ToString()})</td>
@@ -33,6 +36,8 @@
             </tr>
         }
             </table>
+            }
+            else { <label style="font-size:x-large">No Threads..</label>}
             </fieldset>
         }
         }
@@ -42,37 +47,38 @@
         {
     @Html.AntiForgeryToken() 
             @Html.HiddenFor(x=>x[0].Id)
-           
+            @Html.HiddenFor(x=>x[0].ParentId)
         Guid threadid = Model[0].Id;
-        Guid Id=Model[0].Id;
+        Guid ParentId = Model[0].ParentId;
         Model.RemoveRange(0, Model.Count);
         Model.Add(new Forum.Models.ForumThreadModel());
         foreach (Forum.Models.ForumThreadModel item in Model)
         {
            // Forum.Models.ForumThreadModel item = new Forum.Models.ForumThreadModel();
-            item.Id = Id;
-            item.Id = threadid;
-            item.PostText = "Give Description";
-            item.Title = "Write a Title";
-        }
+            item.ParentId = ParentId;
+            //item.Id = threadid;
+            item.PostText = string.Empty;
+            item.Title = string.Empty;
+        } @Html.HiddenFor(x=>x[0].ParentId)
             //int i = Model.Count - 1;
             <fieldset style="width: 300px;">
-                <legend style="border: initial; color: darkolivegreen; text-align: left;">Add New Thread: Section-@Model[0].Id</legend>
+                <legend style="border: initial; color: darkolivegreen; text-align: left;">Add New Thread: Section-@Model[0].ParentId</legend>
+               
                 <table style="border:thin"><tr><td>
-                @Html.Label("Title:") @Html.TextBoxFor(x => x[(0)].Title, new {style = "width:180px;",@class="form-control"})
+                @Html.Label("Title:") @Html.TextBoxFor(x => x[(0)].Title, new {placeholder="Give Description", style = "width:180px;",@class="form-control"})
                      
                 </td><td>
-                @Html.Label("Text:")  @Html.TextBoxFor(x => x[(0)].PostText, new { style = "width:110px;",@class="form-control" })
+                @Html.Label("Text:")  @Html.TextBoxFor(x => x[(0)].PostText, new { placeholder="Write a Title",style = "width:110px;",@class="form-control" })
                 </td></tr></table>   
               <button class="btn-info" style="border-color:black">Add a Thread</button>
             </fieldset>
         }
         }
         else
-        {     @Html.HiddenFor(x=>x[0].Id)
+        {     @Html.HiddenFor(x=>x[0].ParentId)
             
  <fieldset style="width: 300px;">
-                <legend style="border: initial; color: darkolivegreen; text-align: left;">Add New Thread: Section-@Model[0].Id</legend>
+                <legend style="border: initial; color: darkolivegreen; text-align: left;">Add New Thread: Section-@Model[0].ParentId</legend>
                 <table style="border:thin"><tr><td>
                 @Html.Label("Title:") @Html.TextBoxFor((x => x[(0)].Title!=string.Empty?x[0].Title:"No text"), new {style = "width:180px;",@class="form-control"})
                      
