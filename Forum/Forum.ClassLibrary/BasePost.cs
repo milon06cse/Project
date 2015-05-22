@@ -6,20 +6,18 @@ using System.Threading.Tasks;
 
 namespace Forum.ClassLibrary
 {
-    abstract public class BasePost
+    abstract public class BasePost:ForumBase
     {
         public Guid ParentId { get; set; }
-        public Guid Id { get; set; }
-        public int DisplayOrder{get;set;}
-        public string PostText { get; set; }
-        public DateTime PostDate { get; set; }
+       // public Guid Id { get; set; }
+       // public int DisplayOrder{get;set;}
+        //public DateTime PostDate { get; set; }
         public int DownVoteCount { get; set; }
         public int UpVoteCount { get; set; }
         public int Score { get; set; }
         public BasePost()
         {
-            PostText = string.Empty;
-            PostDate = DateTime.Now;
+          //  PostDate = DateTime.Now;
             DownVoteCount = 0;
             UpVoteCount = 0;
             Score = 0;
@@ -33,11 +31,11 @@ namespace Forum.ClassLibrary
         }
         public int IncrementUpVote()
         {
-            return 0;
+            return 1;
         }
         public int IncrementDownVote()
         {
-            return 0;    
+            return 1;    
         }
 
     }

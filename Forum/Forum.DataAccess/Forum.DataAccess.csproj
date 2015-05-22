@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseRepository.cs" />
+    <Compile Include="ForumPostRepository.cs" />
     <Compile Include="ForumSectionRepository.cs" />
     <Compile Include="ForumThreadRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

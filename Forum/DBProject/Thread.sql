@@ -6,6 +6,6 @@
     [Description] NTEXT NULL, 
     [QuestionStatus] BIT NULL, 
     [State] INT NULL, 
-    [SectionId] UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(), 
+    [SectionId] UNIQUEIDENTIFIER NOT NULL foreign key (SectionId) references Section(Id), 
     [UserId] UNIQUEIDENTIFIER NULL 
 )

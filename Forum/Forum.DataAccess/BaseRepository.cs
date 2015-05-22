@@ -15,7 +15,8 @@ namespace Forum.DataAccess
         protected virtual bool OpenConnection()
         {
             if (Connection == null)
-                Connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ForumDbConnection"].ConnectionString);
+                Connection = new SqlConnection(ConfigurationManager.ConnectionStrings["Forum"].ConnectionString);
+                //Connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ForumDbConnection"].ConnectionString);
             if (Connection != null && Connection.State != System.Data.ConnectionState.Open)
             {
                 Connection.Open();

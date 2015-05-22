@@ -16,10 +16,12 @@ namespace Forum.DataAccess
             try
             {
                 OpenConnection();
-                DbCommand Command = CreateSqlCommand("insert into Section(Id,Name,DisplayOrder) values(@Id,@Name,@DisplayOrder)");
+                DbCommand Command = CreateSqlCommand("insert into Section(Id,Name,DisplayOrder,CreationDate,UserId) values(@Id,@Name,@DisplayOrder,@CreationDate,@UserId)");
                 Command.Parameters.Add(CreateParameter("Id", Section.Id));
                 Command.Parameters.Add(CreateParameter("Name", Section.Name));
                 Command.Parameters.Add(CreateParameter("DisplayOrder", Section.DisplayOrder));
+                Command.Parameters.Add(CreateParameter("CreationDate", DateTime.Now));
+                Command.Parameters.Add(CreateParameter("UserId", Section.UserId));
                 Command.ExecuteNonQuery();
                 CloseConnection();
                 return true;

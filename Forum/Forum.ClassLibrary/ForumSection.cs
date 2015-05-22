@@ -11,7 +11,7 @@ namespace Forum.ClassLibrary
         public string Name { get; set; }
         public SectionState State;
         public int DisplayOrder { get; set; }
-       // public List<ForumThread> Threads = new List<ForumThread>();
+        public List<ForumThread> Threads = new List<ForumThread>();
        // private ForumSection _Section;
        public ForumSection()
         {

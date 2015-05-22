@@ -9,6 +9,7 @@ namespace Forum.ClassLibrary
    public  class ForumPost:BasePost
     {
        public bool CorrectAnswer { set; get; }
+       public string PostText { get; set; }
        public override int CalculateScore()
        {
            Score = UpVoteCount * 10 - DownVoteCount * 2;
@@ -17,10 +18,12 @@ namespace Forum.ClassLibrary
        }
        public ForumPost()
        {
+           CorrectAnswer = false;
+           PostText = string.Empty;
        }
        public ForumPost ShowPost(ForumPost item)
        {
-           item.PostText = "PostShown";
+           item.PostText = this.PostText;
            return item;
        }
     }

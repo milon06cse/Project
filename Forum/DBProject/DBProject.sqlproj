@@ -57,5 +57,6 @@
   <ItemGroup>
     <Build Include="Section.sql" />
     <Build Include="Thread.sql" />
+    <Build Include="Post.sql" />
   </ItemGroup>
 </Project>

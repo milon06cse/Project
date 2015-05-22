@@ -3,3 +3,8 @@ E:\Dev Skill\Project\Forum\ForumDB\bin\Debug\ForumDB.dll
 E:\Dev Skill\Project\Forum\ForumDB\bin\Debug\ForumDB.pdb
 E:\Dev Skill\Project\Forum\ForumDB\obj\Debug\ForumDB.dll
 E:\Dev Skill\Project\Forum\ForumDB\obj\Debug\ForumDB.pdb
+E:\Dev Skill\Project\Forum\DBProject\bin\Debug\DBProject.dacpac
+E:\Dev Skill\Project\Forum\DBProject\bin\Debug\ForumDB.dll
+E:\Dev Skill\Project\Forum\DBProject\bin\Debug\ForumDB.pdb
+E:\Dev Skill\Project\Forum\DBProject\obj\Debug\ForumDB.dll
+E:\Dev Skill\Project\Forum\DBProject\obj\Debug\ForumDB.pdb
