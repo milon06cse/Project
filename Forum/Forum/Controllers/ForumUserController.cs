@@ -15,17 +15,17 @@ namespace Forum.Controllers
 
         public ActionResult Index()
         {
-            ForumUserModel model = new ForumUserModel();           
-            return View( model.ShowAllUser());
+           // ForumUserModel model = new ForumUserModel();           
+            return View(ForumUserModel.ShowAllUser());
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(ForumUserModel model)
+        public ActionResult Index(List<ForumUserModel> model)
         {
-            Validator.ValidateValue(model.Name,
-            Validator.TryValidateValue(model,.Required();
-            model.Save(model);
-            return View();
+            //Validator.ValidateValue(model.Name,
+            //Validator.TryValidateValue(model,.Required();
+            ForumUserModel.Save(model[0]);
+            return View(ForumUserModel.ShowAllUser());
         }
     }
 }

@@ -17,7 +17,7 @@ namespace Forum.Models
         public string Nid { get; set; }
         public string Address { get; set; }
         public string ZipCode { get; set; }
-        internal bool Save(ForumUserModel model)
+        internal static bool Save(ForumUserModel model)
         {
             ForumUser user = new ForumUser();
             user.Name = model.Name;
@@ -26,7 +26,7 @@ namespace Forum.Models
             return repository.Add(user);
         }
 
-        internal List<ForumUserModel>  ShowAllUser() //suggested type System.Web.Mvc.IView
+        internal static List<ForumUserModel>  ShowAllUser() //suggested type System.Web.Mvc.IView
         {
             List<ForumUserModel> models = new List<ForumUserModel>();
 //            List<ForumUser> users = new List<ForumUser>();

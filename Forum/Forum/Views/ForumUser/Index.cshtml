@@ -3,40 +3,40 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@{
-    var message="";
-    // Specify validation requirements for different fields.
-    
-    Validation.RequireField("coursename", "Class name is required");
-    Validation.RequireField("credits", "Credits is required");
-    Validation.Add("coursename", Validator.StringLength(5));
-    Validation.Add("credits", Validator.Integer("Credits must be an integer"));
-    Validation.Add("credits", Validator.Range(1, 5, "Credits must be between 1 and 5"));
-    Validation.Add("startDate", Validator.DateTime("Start date must be a date"));
-
-    if (IsPost)  {
-        // Before processing anything, make sure that all user input is valid.
-        if (Validation.IsValid()) {
-            var coursename = Request["coursename"];
-            var credits = Request["credits"].AsInt();
-            var startDate = Request["startDate"].AsDateTime();
-            message += @"For Class, you entered " + coursename;
-            message += @"<br/>For Credits, you entered " + credits.ToString();
-            message += @"<br/>For Start Date, you entered " + startDate.ToString("dd-MMM-yyyy");
-
-            // Further processing here
-        }
-    }
-}
 <html>
-    <head><script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.2.js">
-</script>
-<script
-src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/jquery.validate.js">
-</script>
-<script src="~/Scripts/jquery.validate.unobtrusive.js">
-</script></head>
-<h2>Index</h2>
+<head>
+    <title>User Creation with validation</title>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.2.js">
+    </script>
+    <script
+        src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/jquery.validate.js">
+    </script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js">
+    </script>
+    <script>
+        function IsCellNo() {
+            var val = document.getElementById('itemcellno').value
+            //var exp = /^[0][1][0 - 9]{11}/;
+            if (val == "" || isNaN(val) || exp.test(val)) { lblCellNo.innerText = "Plz enter valid cell number"; return false; }
+            else { lblCellNo.innerText = " "; return true; }
+        }
+        function check() {
+            var nvalue = document.getElementById('itemname').value
+            if (nvalue == "") { lblName.innerText = "User Name is Required"; return false; }
+            else { lblName.innerText = ""; }
+
+            var cellno = document.getElementById('itemcellno').value
+            if (cellno == "") { lblCellNo.innerText = "Cell No is Required"; return false; }
+            else { lblCellNo.innerText = ""; }
+
+            var nid = document.getElementById('itemnid').value
+            if (nid == "") { lblNid.innerText = "Nid is Required"; return false; }
+            else { lblNid.innerText = ""; }
+
+            return true;
+        }
+    </script>
+</head>
   <body>
     @Html.AntiForgeryToken()  
         @using( Html.BeginForm("Index","ForumUser",FormMethod.Get))
@@ -59,21 +59,32 @@ src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/jquery.validate.js">
             </table>
             </fieldset>
         }
-        @using (Html.BeginForm("Index", "ForumUser", FormMethod.Post))
+        @using (Html.BeginForm("Index", "ForumUser", FormMethod.Post, new { onsubmit = "return check()" }))
         {
     @Html.AntiForgeryToken() 
             Model.RemoveRange(0, Model.Count);
-            Model.Add(new Forum.Models.ForumUserModel());
+           Model.Add(new Forum.Models.ForumUserModel());
             //int i = Model.Count - 1;
             <fieldset style="width: 300px;">
                 <legend style="border: initial; color: darkolivegreen; text-align: left;">Add New User: Admin Panel</legend>
-                <table style="border:thin"><tr><td>
-                @Html.Label("User Name:") @Html.TextBoxFor(x => x[(0)].Name, new { style = "width:180px;" })
-                </td><td>
-                @Html.Label("User Cell:") @Html.TextBoxFor(x => x[(0)].Cellno, new { style = "width:180px;" })
-                </td><td>
-                @Html.Label("Nid:") @Html.TextBoxFor(x => x[(0)].Nid, new { style = "width:110px;" })
-                </td></tr></table>
+                <table style="border: thin">
+                    <tr>
+                        <td>
+                            @Html.Label("User Name:") @Html.TextBoxFor(x => x[(0)].Name, new { id = "itemname" })
+                            <label id="lblName" style="color: red"></label>
+                        </td>
+                        <td>
+                           @* <input type="text" name="x => x[(0)].CellNo" id="nameid" value="" onblur="return fuckyou()" />*@
+                              @Html.Label("Cell No:") @Html.TextBoxFor(x => x[(0)].Cellno, new { id = "itemcellno",@onblur=" return IsCellNo()" })
+                            <label id="lblCellNo" style="color: red"></label>
+                        </td>
+                        <td>
+                            @Html.Label("Nid:") @Html.TextBoxFor(x => x[(0)].Nid, new { id="itemnid" })
+                            <label id="lblNid" style ="color:red"></label>
+                        </td>
+                    </tr>
+                </table>
+              
                 <input type="submit" value="Save" />
             </fieldset>
         }
