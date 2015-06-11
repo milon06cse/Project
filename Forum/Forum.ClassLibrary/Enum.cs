@@ -21,5 +21,11 @@ namespace Forum.ClassLibrary
             Sticky = 1,
             Closed = 2
         }
-
+        public enum enumUserType
+        {
+            Admin=1,
+            Power=2,
+            Normal=3,
+            Default=4
+        }
 }

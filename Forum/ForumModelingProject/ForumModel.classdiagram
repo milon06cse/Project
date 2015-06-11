@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="6dcda997-6cc9-4be8-99ae-00868de933d9" name="ForumModel" linkedPackageId="6262ae21-e914-48e6-b69b-f4799c009e30" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="952f633b-c08d-478e-bedb-10c683035806">
+      <profileInstance Id="8c34168b-6dcc-427b-b52c-312d48da2290" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="b172c407-3e9a-4aca-9aac-8da0da8912e3">
+      <profileInstance Id="01b81680-7ebb-4072-bbac-2859794b36e7" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="f15ce86e-b56f-412e-b144-e1b702e2bc29" name="Forum" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="962f30cb-adc2-4a3e-a942-a06da4bba8c9" />
+        <ownedAttributesInternal>
+          <property Id="bee19533-a45e-4e7f-931f-c01707338510" name="SearchText" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="daadd313-775a-45a8-8ccc-843f87a562ee" />
+          </property>
+          <property Id="27bf1547-3f5c-4128-8013-3e0ec9d46d56" name="Section" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="883b4154-024d-4d55-a117-270f6cdc3b3a" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="cf97bcab-99b7-4456-9d5e-e17a9bc2f91e" LastKnownName="ForumSection" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="cf97bcab-99b7-4456-9d5e-e17a9bc2f91e" name="ForumSection" isAbstract="false" isLeaf="false" cachedFullName="ForumSection">
+        <elementDefinition Id="54f4a642-9437-45cb-b7b1-e13177b59600" />
+      </referencedType>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="6262ae21-e914-48e6-b69b-f4799c009e30" name="ForumModelingProject">
+    <elementDefinition Id="e3dddfb5-9146-4400-9117-ee8fa8044f27" />
+  </package>
+</logicalClassDesignerModel>

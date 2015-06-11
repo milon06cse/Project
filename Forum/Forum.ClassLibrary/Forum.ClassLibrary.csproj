@@ -45,6 +45,7 @@
     <Compile Include="ForumThread.cs" />
     <Compile Include="ForumPost.cs" />
     <Compile Include="BasePost.cs" />
+    <Compile Include="ForumUser.cs" />
     <Compile Include="PrimaryPost.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

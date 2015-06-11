@@ -45,6 +45,7 @@
     <Compile Include="ForumSectionRepository.cs" />
     <Compile Include="ForumThreadRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Forum.ClassLibrary\Forum.ClassLibrary.csproj">

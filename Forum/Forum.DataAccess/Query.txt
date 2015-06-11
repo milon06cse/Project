@@ -4,3 +4,13 @@
     [Name] NCHAR(10) NOT NULL, 
     [DisplayOrder] NCHAR(10) NULL
 )
+
+create table [dbo].[ForumUser]
+(Id uniqueidentifier not null primary key,
+ Name varchar(30),
+Type int,
+ Birthday DateTime,
+Cellno varchar(20) not null,
+Nid varchar(30),
+Address ntext,
+ZipCode varchar(4))

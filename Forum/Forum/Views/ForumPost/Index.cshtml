@@ -11,7 +11,7 @@
 	<link href="/Content/strap/css/bootstrap-responsive.min.css" rel="stylesheet">
   </head>
 <body>
-    @Html.AntiForgeryToken()
+  //  @Html.AntiForgeryToken()
     @using( Html.BeginForm("Index","ForumPost",FormMethod.Post))
        {
        @Html.Label("Thread Title: ") @Model.Title.ToString()

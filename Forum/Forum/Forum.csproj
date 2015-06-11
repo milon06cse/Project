@@ -101,12 +101,14 @@
     <Compile Include="Controllers\ForumPostController.cs" />
     <Compile Include="Controllers\ForumSectionController.cs" />
     <Compile Include="Controllers\ForumThreadController.cs" />
+    <Compile Include="Controllers\ForumUserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ForumPostModel.cs" />
     <Compile Include="Models\ForumSectionModel.cs" />
     <Compile Include="Models\ForumThreadModel.cs" />
+    <Compile Include="Models\ForumUserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -205,6 +207,7 @@
     <Content Include="Views\ForumThread\ThreadsBySection.cshtml" />
     <Content Include="Views\ForumThread\Index.cshtml" />
     <Content Include="Views\ForumPost\Index.cshtml" />
+    <Content Include="Views\ForumUser\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

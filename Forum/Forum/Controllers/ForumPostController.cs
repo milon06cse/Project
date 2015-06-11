@@ -19,7 +19,7 @@ namespace Forum.Controllers
             return View("Index", thread.ThreadWithPosts(thread.Id));
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
+       // [ValidateAntiForgeryToken]
         public ActionResult Index(ForumThreadModel thread)
         {
             ForumPostModel newpost = new ForumPostModel();
